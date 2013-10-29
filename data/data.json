@@ -1,0 +1,767 @@
+[{
+  "values": [
+    {
+      "year": 2000,
+      "value": "21698"
+    },
+    {
+      "year": 2001,
+      "value": "21712"
+    },
+    {
+      "year": 2002,
+      "value": "20251"
+    },
+    {
+      "year": 2003,
+      "value": "25474"
+    },
+    {
+      "year": 2004,
+      "value": "17331"
+    },
+    {
+      "year": 2005,
+      "value": "9828"
+    },
+    {
+      "year": 2006,
+      "value": "8642"
+    },
+    {
+      "year": 2007,
+      "value": "5980"
+    },
+    {
+      "year": 2008,
+      "value": "8522"
+    },
+    {
+      "year": 2009,
+      "value": "11198"
+    },
+    {
+      "year": 2010,
+      "value": "14216"
+    },
+    {
+      "year": 2011,
+      "value": "19426"
+    },
+    {
+      "year": 2012,
+      "value": "18289"
+    }
+  ],
+  "population_type": "Refugees",
+  "coa": "Djibouti",
+  "coo": "Somalia"
+},
+{
+  "values": [
+    {
+      "year": 2000,
+      "value": "56"
+    },
+    {
+      "year": 2001,
+      "value": "56"
+    },
+    {
+      "year": 2002,
+      "value": "56"
+    },
+    {
+      "year": 2003,
+      "value": "329"
+    },
+    {
+      "year": 2004,
+      "value": ""
+    },
+    {
+      "year": 2005,
+      "value": ""
+    },
+    {
+      "year": 2006,
+      "value": ""
+    },
+    {
+      "year": 2007,
+      "value": "20"
+    },
+    {
+      "year": 2008,
+      "value": ""
+    },
+    {
+      "year": 2009,
+      "value": "25"
+    },
+    {
+      "year": 2010,
+      "value": ""
+    },
+    {
+      "year": 2011,
+      "value": "4"
+    },
+    {
+      "year": 2012,
+      "value": "35"
+    }
+  ],
+  "population_type": "Asylum seekers",
+  "coa": "Djibouti",
+  "coo": "Somalia"
+},
+{
+  "values": [
+    {
+      "year": 2000,
+      "value": ""
+    },
+    {
+      "year": 2001,
+      "value": ""
+    },
+    {
+      "year": 2002,
+      "value": ""
+    },
+    {
+      "year": 2003,
+      "value": ""
+    },
+    {
+      "year": 2004,
+      "value": ""
+    },
+    {
+      "year": 2005,
+      "value": ""
+    },
+    {
+      "year": 2006,
+      "value": ""
+    },
+    {
+      "year": 2007,
+      "value": ""
+    },
+    {
+      "year": 2008,
+      "value": ""
+    },
+    {
+      "year": 2009,
+      "value": ""
+    },
+    {
+      "year": 2010,
+      "value": ""
+    },
+    {
+      "year": 2011,
+      "value": "2"
+    },
+    {
+      "year": 2012,
+      "value": ""
+    }
+  ],
+  "population_type": "Others of concern",
+  "coa": "Djibouti",
+  "coo": "Somalia"
+},
+{
+  "values": [
+    {
+      "year": 2000,
+      "value": "1253"
+    },
+    {
+      "year": 2001,
+      "value": "1743"
+    },
+    {
+      "year": 2002,
+      "value": "2990"
+    },
+    {
+      "year": 2003,
+      "value": "3261"
+    },
+    {
+      "year": 2004,
+      "value": "3523"
+    },
+    {
+      "year": 2005,
+      "value": "3620"
+    },
+    {
+      "year": 2006,
+      "value": "3792"
+    },
+    {
+      "year": 2007,
+      "value": "4228"
+    },
+    {
+      "year": 2008,
+      "value": "4675"
+    },
+    {
+      "year": 2009,
+      "value": "4561"
+    },
+    {
+      "year": 2010,
+      "value": "4556"
+    },
+    {
+      "year": 2011,
+      "value": "4472"
+    },
+    {
+      "year": 2012,
+      "value": "3440"
+    }
+  ],
+  "population_type": "Refugees",
+  "coa": "Eritrea",
+  "coo": "Somalia"
+},
+{
+  "values": [
+    {
+      "year": 2000,
+      "value": ""
+    },
+    {
+      "year": 2001,
+      "value": ""
+    },
+    {
+      "year": 2002,
+      "value": ""
+    },
+    {
+      "year": 2003,
+      "value": ""
+    },
+    {
+      "year": 2004,
+      "value": ""
+    },
+    {
+      "year": 2005,
+      "value": "37"
+    },
+    {
+      "year": 2006,
+      "value": "46"
+    },
+    {
+      "year": 2007,
+      "value": "58"
+    },
+    {
+      "year": 2008,
+      "value": "128"
+    },
+    {
+      "year": 2009,
+      "value": "130"
+    },
+    {
+      "year": 2010,
+      "value": "135"
+    },
+    {
+      "year": 2011,
+      "value": ""
+    },
+    {
+      "year": 2012,
+      "value": ""
+    }
+  ],
+  "population_type": "Asylum seekers",
+  "coa": "Eritrea",
+  "coo": "Somalia"
+},
+{
+  "values": [
+    {
+      "year": 2000,
+      "value": "137376"
+    },
+    {
+      "year": 2001,
+      "value": "144349"
+    },
+    {
+      "year": 2002,
+      "value": "155767"
+    },
+    {
+      "year": 2003,
+      "value": "154272"
+    },
+    {
+      "year": 2004,
+      "value": "153627"
+    },
+    {
+      "year": 2005,
+      "value": "150459"
+    },
+    {
+      "year": 2006,
+      "value": "173702"
+    },
+    {
+      "year": 2007,
+      "value": "192420"
+    },
+    {
+      "year": 2008,
+      "value": "259121"
+    },
+    {
+      "year": 2009,
+      "value": "310280"
+    },
+    {
+      "year": 2010,
+      "value": "351773"
+    },
+    {
+      "year": 2011,
+      "value": "517666"
+    },
+    {
+      "year": 2012,
+      "value": "512069"
+    }
+  ],
+  "population_type": "Refugees",
+  "coa": "Kenya",
+  "coo": "Somalia"
+},
+{
+  "values": [
+    {
+      "year": 2000,
+      "value": "110"
+    },
+    {
+      "year": 2001,
+      "value": "3398"
+    },
+    {
+      "year": 2002,
+      "value": ""
+    },
+    {
+      "year": 2003,
+      "value": "45"
+    },
+    {
+      "year": 2004,
+      "value": "4522"
+    },
+    {
+      "year": 2005,
+      "value": "12454"
+    },
+    {
+      "year": 2006,
+      "value": "11799"
+    },
+    {
+      "year": 2007,
+      "value": "710"
+    },
+    {
+      "year": 2008,
+      "value": "694"
+    },
+    {
+      "year": 2009,
+      "value": "178"
+    },
+    {
+      "year": 2010,
+      "value": "1435"
+    },
+    {
+      "year": 2011,
+      "value": "1745"
+    },
+    {
+      "year": 2012,
+      "value": "1223"
+    }
+  ],
+  "population_type": "Asylum seekers",
+  "coa": "Kenya",
+  "coo": "Somalia"
+},
+{
+  "values": [
+    {
+      "year": 2000,
+      "value": "18000"
+    },
+    {
+      "year": 2001,
+      "value": ""
+    },
+    {
+      "year": 2002,
+      "value": ""
+    },
+    {
+      "year": 2003,
+      "value": ""
+    },
+    {
+      "year": 2004,
+      "value": ""
+    },
+    {
+      "year": 2005,
+      "value": "400000"
+    },
+    {
+      "year": 2006,
+      "value": "400000"
+    },
+    {
+      "year": 2007,
+      "value": "1000000"
+    },
+    {
+      "year": 2008,
+      "value": "1277200"
+    },
+    {
+      "year": 2009,
+      "value": "1550000"
+    },
+    {
+      "year": 2010,
+      "value": "1463780"
+    },
+    {
+      "year": 2011,
+      "value": "1356845"
+    },
+    {
+      "year": 2012,
+      "value": "1132963"
+    }
+  ],
+  "population_type": "Internally displaced",
+  "coa": "Somalia",
+  "coo": "Somalia"
+},
+{
+  "values": [
+    {
+      "year": 2000,
+      "value": ""
+    },
+    {
+      "year": 2001,
+      "value": ""
+    },
+    {
+      "year": 2002,
+      "value": ""
+    },
+    {
+      "year": 2003,
+      "value": ""
+    },
+    {
+      "year": 2004,
+      "value": ""
+    },
+    {
+      "year": 2005,
+      "value": ""
+    },
+    {
+      "year": 2006,
+      "value": ""
+    },
+    {
+      "year": 2007,
+      "value": ""
+    },
+    {
+      "year": 2008,
+      "value": ""
+    },
+    {
+      "year": 2009,
+      "value": ""
+    },
+    {
+      "year": 2010,
+      "value": ""
+    },
+    {
+      "year": 2011,
+      "value": ""
+    },
+    {
+      "year": 2012,
+      "value": "10188"
+    }
+  ],
+  "population_type": "Returned IDPs",
+  "coa": "Somalia",
+  "coo": "Somalia"
+},
+{
+  "values": [
+    {
+      "year": 2000,
+      "value": ""
+    },
+    {
+      "year": 2001,
+      "value": ""
+    },
+    {
+      "year": 2002,
+      "value": ""
+    },
+    {
+      "year": 2003,
+      "value": ""
+    },
+    {
+      "year": 2004,
+      "value": ""
+    },
+    {
+      "year": 2005,
+      "value": ""
+    },
+    {
+      "year": 2006,
+      "value": ""
+    },
+    {
+      "year": 2007,
+      "value": ""
+    },
+    {
+      "year": 2008,
+      "value": ""
+    },
+    {
+      "year": 2009,
+      "value": ""
+    },
+    {
+      "year": 2010,
+      "value": ""
+    },
+    {
+      "year": 2011,
+      "value": "11"
+    },
+    {
+      "year": 2012,
+      "value": "38"
+    }
+  ],
+  "population_type": "Others of concern",
+  "coa": "Somalia",
+  "coo": "Somalia"
+},
+{
+  "values": [
+    {
+      "year": 2000,
+      "value": "1236"
+    },
+    {
+      "year": 2001,
+      "value": "819"
+    },
+    {
+      "year": 2002,
+      "value": "879"
+    },
+    {
+      "year": 2003,
+      "value": "892"
+    },
+    {
+      "year": 2004,
+      "value": "1089"
+    },
+    {
+      "year": 2005,
+      "value": "1811"
+    },
+    {
+      "year": 2006,
+      "value": "3752"
+    },
+    {
+      "year": 2007,
+      "value": "4573"
+    },
+    {
+      "year": 2008,
+      "value": "6085"
+    },
+    {
+      "year": 2009,
+      "value": "8172"
+    },
+    {
+      "year": 2010,
+      "value": "11151"
+    },
+    {
+      "year": 2011,
+      "value": "14023"
+    },
+    {
+      "year": 2012,
+      "value": "19000"
+    }
+  ],
+  "population_type": "Refugees",
+  "coa": "Uganda",
+  "coo": "Somalia"
+},
+{
+  "values": [
+    {
+      "year": 2000,
+      "value": "133"
+    },
+    {
+      "year": 2001,
+      "value": "100"
+    },
+    {
+      "year": 2002,
+      "value": "125"
+    },
+    {
+      "year": 2003,
+      "value": "135"
+    },
+    {
+      "year": 2004,
+      "value": "562"
+    },
+    {
+      "year": 2005,
+      "value": "562"
+    },
+    {
+      "year": 2006,
+      "value": "1055"
+    },
+    {
+      "year": 2007,
+      "value": "1055"
+    },
+    {
+      "year": 2008,
+      "value": "2154"
+    },
+    {
+      "year": 2009,
+      "value": "3453"
+    },
+    {
+      "year": 2010,
+      "value": "6260"
+    },
+    {
+      "year": 2011,
+      "value": "7040"
+    },
+    {
+      "year": 2012,
+      "value": "8143"
+    }
+  ],
+  "population_type": "Asylum seekers",
+  "coa": "Uganda",
+  "coo": "Somalia"
+},
+{
+  "values": [
+    {
+      "year": 2000,
+      "value": "56524"
+    },
+    {
+      "year": 2001,
+      "value": "67485"
+    },
+    {
+      "year": 2002,
+      "value": "80763"
+    },
+    {
+      "year": 2003,
+      "value": "59246"
+    },
+    {
+      "year": 2004,
+      "value": "63511"
+    },
+    {
+      "year": 2005,
+      "value": "78582"
+    },
+    {
+      "year": 2006,
+      "value": "91587"
+    },
+    {
+      "year": 2007,
+      "value": "110616"
+    },
+    {
+      "year": 2008,
+      "value": "132275"
+    },
+    {
+      "year": 2009,
+      "value": "161468"
+    },
+    {
+      "year": 2010,
+      "value": "179845"
+    },
+    {
+      "year": 2011,
+      "value": "204685"
+    },
+    {
+      "year": 2012,
+      "value": "226909"
+    }
+  ],
+  "population_type": "Refugees",
+  "coa": "Yemen",
+  "coo": "Somalia"
+}]

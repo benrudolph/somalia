@@ -1,0 +1,13 @@
+jq '.[] | {coo,coa,population_type,values: [ {value: .y2000, year:2000},
+{value:.y2001,year:2001},
+{value:.y2002,year:2002},
+{value:.y2003,year:2003},
+{value:.y2004,year:2004},
+{value:.y2005,year:2005},
+{value:.y2006,year:2006},
+{value:.y2007,year:2007},
+{value:.y2008,year:2008},
+{value:.y2009,year:2009},
+{value:.y2010,year:2010},
+{value:.y2011,year:2011},
+{value:.y2012,year:2012} ] }' j.json
