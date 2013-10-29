@@ -1,4 +1,27 @@
+$(document).ready(function() {
+  $(document).keydown(function(e) {
+    console.log(e.keyCode);
+    if (e.keyCode === 37) {
+      // Left
+      stack.previousYear();
+      stack();
+
+    } else if (e.keyCode === 39) {
+      // Right
+      stack.nextYear();
+      stack();
+
+    }
+
+  });
+
+});
+
+var stack;
 d3.json('/data/data.json', function(layers) {
+
+  stack = stackFn({ layers: layers, selection: '#stack-graph', currentYear: 2003 });
+  stack();
 
     /*function transition() {
       d3.selectAll("path")
@@ -34,9 +57,11 @@ d3.json('/data/data.json', function(layers) {
   });
 
 function stackFn(config) {
+  var currentYear = config.currentYear;
+
   var stack = d3.layout.stack()
     .values(function(d) {
-      return d.values;
+      return d.filtered;
     })
     .y(function(d) {
       return +d.value;
@@ -44,6 +69,7 @@ function stackFn(config) {
 
   var width = 960,
       height = 400;
+
 
   var x = d3.scale.linear()
       .domain([2000, 2012])
@@ -67,24 +93,57 @@ function stackFn(config) {
       return y(+d.y0 + +d.value);
     });
 
-  var svg = d3.select("body").append("svg")
+  var svg = d3.select(config.selection).append("svg")
       .attr("width", width)
       .attr("height", height);
 
-  function render() {
+  var layers = config.layers;
 
-    svg.selectAll("path")
-        .data(stack(layers))
-      .enter().append("path")
-        .attr("d", function(d) {
-          return area(d.values);
+  function render() {
+    layers = filtered(layers);
+
+    var stacks = svg.selectAll("path")
+        .data(stack(layers), function(d,i) {
+          console.log(d);
+          return i;
+        });
+
+    stacks.enter().append("path");
+    stacks
+      .transition()
+      .duration(1000)
+      .attr("d", function(d) {
+          return area(d.filtered);
         })
         .attr('class', function(d) {
           return [d.population_type.toLowerCase().replace(/ /g, ''),
-            d.coa.toLowerCase()].join(' ');
+                  d.coa.toLowerCase()].join(' ');
         });
   }
 
-  return render
+  function filtered(layers) {
+    layers.forEach(function(layer) {
+      layer.filtered = layer.values.filter(function(d) {
+        return currentYear >= d.year;
+      });
+    });
+    return layers;
+  }
+
+  render.currentYear = function(year) {
+    if (!arguments) return currentYear;
+    currentYear = year;
+    return this;
+  };
+
+  render.nextYear = function() {
+    currentYear ++;
+  };
+
+  render.previousYear = function() {
+    currentYear --;
+  };
+
+  return render;
 
 }
