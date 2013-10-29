@@ -17,74 +17,74 @@ $(document).ready(function() {
 
 });
 
+var parseDate = d3.time.format("%Y").parse;
+
 var stack;
 d3.json('/data/data.json', function(layers) {
 
-  stack = stackFn({ layers: layers, selection: '#stack-graph', currentYear: 2003 });
+  stack = stackFn({
+    layers: layers,
+    width: 800,
+    height: 400,
+    selection: '#stack-graph',
+    currentDate: parseDate('2012')
+  });
   stack();
 
-    /*function transition() {
-      d3.selectAll("path")
-          .data(function() {
-            var d = layers1;
-            layers1 = layers0;
-            return layers0 = d;
-          })
-        .transition()
-          .duration(2500)
-          .attr("d", area);
-    }
-
-    // Inspired by Lee Byron's test data generator.
-    function bumpLayer(n) {
-
-      function bump(a) {
-        var x = 1 / (.1 + Math.random()),
-            y = 2 * Math.random() - .5,
-            z = 10 / (.1 + Math.random());
-        for (var i = 0; i < n; i++) {
-          var w = (i / n - y) * z;
-          a[i] += x * Math.exp(-w * w);
-        }
-      }
-
-      var a = [], i;
-      for (i = 0; i < n; ++i) a[i] = 0;
-      for (i = 0; i < 5; ++i) bump(a);
-      return a.map(function(d, i) { return {x: i, y: Math.max(0, d)}; });
-    }*/
-
-  });
+});
 
 function stackFn(config) {
-  var currentYear = config.currentYear;
+  var currentDate = config.currentDate;
+
+  var margin = config.margin || {
+    top: 50,
+    bottom: 50,
+    left: 80,
+    right: 50
+  };
 
   var stack = d3.layout.stack()
     .values(function(d) {
-      return d.filtered;
+      return d.values;
     })
     .y(function(d) {
       return +d.value;
     });
 
-  var width = 960,
-      height = 400;
+  var width = config.width - margin.left - margin.right;
+  var height = config.height - margin.top - margin.bottom;
 
 
-  var x = d3.scale.linear()
-      .domain([2000, 2012])
-      .range([0, width]);
+
+  var x = d3.time.scale()
+    .domain([parseDate('' + 2000), parseDate('' + 2012)])
+    .range([0, width]);
 
   var y = d3.scale.linear()
-      .domain([0, 3000000])
-      .range([height, 0]);
+    .domain([0, 3000000])
+    .range([height, 0]);
+
+  var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom")
+    .tickFormat(d3.time.format('%Y'))
+    .ticks(d3.time.years, 1)
+    .tickSize(-height, 0, 0)
+    .tickPadding(6);
+
+  var yAxis = d3.svg.axis()
+    .scale(y)
+    .ticks(5)
+    .orient("left")
+    .tickSize(-width, 0, 0)
+    .tickPadding(8);
 
   var color = d3.scale.linear()
       .range(["#aad", "#556"]);
 
   var area = d3.svg.area()
     .x(function(d) {
-      return x(d.year);
+      return x(parseDate('' + d.year));
     })
     .y0(function(d) {
       return y(+d.y0);
@@ -94,54 +94,77 @@ function stackFn(config) {
     });
 
   var svg = d3.select(config.selection).append("svg")
-      .attr("width", width)
-      .attr("height", height);
+      .attr("width", config.width)
+      .attr("height", config.height)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   var layers = config.layers;
 
   function render() {
-    layers = filtered(layers);
 
-    var stacks = svg.selectAll("path")
-        .data(stack(layers), function(d,i) {
-          console.log(d);
-          return i;
-        });
+    var stacks = svg.selectAll(".stack")
+        .data(stack(layers));
 
     stacks.enter().append("path");
     stacks
       .transition()
       .duration(1000)
       .attr("d", function(d) {
-          return area(d.filtered);
+          return (area(d.values));
         })
         .attr('class', function(d) {
           return [d.population_type.toLowerCase().replace(/ /g, ''),
-                  d.coa.toLowerCase()].join(' ');
+                  d.coa.toLowerCase(),
+                  'stack'].join(' ');
         });
-  }
 
-  function filtered(layers) {
-    layers.forEach(function(layer) {
-      layer.filtered = layer.values.filter(function(d) {
-        return currentYear >= d.year;
+    var transitionBlock = svg.selectAll('.transition-block').data([0]);
+    transitionBlock.enter().append('rect');
+    transitionBlock
+      .attr('y', 0)
+      .attr('height', y(height))
+      .attr('class', 'transition-block');
+
+    transitionBlock
+      .transition()
+      .duration(1000)
+      .ease('linear')
+      .attr('width', function(d) {
+        return x(parseDate('2012')) - x(currentDate);
+      })
+      .attr('x', function(d) {
+        return x(currentDate);
       });
-    });
-    return layers;
+
+
+    svg.select('.y.axis').remove();
+    svg.select('.x.axis').remove();
+
+    svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+    svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+
   }
 
-  render.currentYear = function(year) {
-    if (!arguments) return currentYear;
-    currentYear = year;
+
+  render.currentDate = function(date) {
+    if (!arguments) return currentDate;
+    currentDate = date;
     return this;
   };
 
   render.nextYear = function() {
-    currentYear ++;
+    currentDate.setFullYear(currentDate.getFullYear() + 1);
   };
 
   render.previousYear = function() {
-    currentYear --;
+    currentDate.setFullYear(currentDate.getFullYear() - 1);
   };
 
   return render;
