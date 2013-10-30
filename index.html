@@ -18,11 +18,16 @@
       top: 10px;
     }
 
+    #stack-graph {
+      text-align: center;
+    }
+
     .axis path,
     .axis line {
       fill: none;
       stroke: rgb(238,238,238);
       shape-rendering: crispEdges;
+      pointer-events: none;
     }
     .axis text, .legend-label {
       font-size: 10px;
@@ -34,12 +39,43 @@
 
     .y.axis path {
         stroke-width: 0;
-    }
-    .transition-block {
-      fill: white;
+        pointer-events: none;
     }
 
-    .internallydisplaced {
+
+    .subtle-shadow {
+      -webkit-box-shadow: 0px 0px 7px rgba(50, 50, 50, .3);
+      -moz-box-shadow:    0px 0px 7px rgba(50, 50, 50, .3);
+      box-shadow:         0px 0px 7px rgba(50, 50, 50, .3);
+    }
+
+    .transition-block {
+      fill: white;
+      opacity: .9;
+    }
+
+    .stack {
+      opacity: .5;
+      cursor: pointer;
+    }
+
+    .stack:hover {
+      opacity: 1;
+    }
+
+    #tooltip  {
+      width: 300px;
+      height: 150px;
+      border: 1px solid rgb(160,160,160);
+      background-color: white;
+      border-radius: 3px;
+      position: absolute;
+      top: 20px;
+      left: 0px;
+      text-align: center;
+    }
+
+    /*.internallydisplaced {
       opacity: .4;
     }
 
@@ -48,7 +84,7 @@
     }
     .refugees {
       opacity: 1;
-    }
+    }*/
 
     .djibouti {
       fill: red;
@@ -74,12 +110,54 @@
       fill: orange;
     }
 
+    .gone {
+    }
+
+    .title {
+      font-weight: 300;
+      font-size: 1.6em;
+      line-height: 1.8em;
+      border-bottom: 1px solid rgb(200,200,200);
+      margin: 0 40px;
+    }
+
+    .label {
+      display: inline-block;
+      font-weight: 300;
+      width: 210px;
+    }
+
+    .value {
+      display: inline-block;
+      width: 60px;
+      margin-right: 15px;
+      font-weight: bold;
+      text-align: right;
+    }
+
+    .description {
+      margin-top: 10px;
+      padding: 0 10px;
+      font-weight: 300;
+      font-size: 1.2em;
+    }
+
     </style>
   </head>
   <body>
+    <div id="tooltip" class="gone subtle-shadow">
+      <div class="title">Ethiopia Withdrawal</div>
+      <div class="description">Ethiopia withdraws from Somalia, hands control to AMISOM/TFG forces</div>
+    </div>
     <div id="stack-graph"></div>
-    <script src="./d3.v3.min.js"></script>
-    <script src="./jquery.min.js"></script>
-    <script src="somalia.js"></script>
+    <div id="change"></div>
+    <script src="/vendor/d3.v3.min.js"></script>
+    <script src="/vendor/jquery.min.js"></script>
+    <script src="/vendor/jquery.countTo.js"></script>
+    <script src="/vendor/underscore.js"></script>
+    <script src="/vendor/backbone.js"></script>
+    <script src="/graphs/stack.js"></script>
+    <script src="/graphs/change.js"></script>
+    <script src="/js/somalia.js"></script>
   </body>
 </html>
