@@ -4,7 +4,7 @@ function stackFn(config) {
     top: 50,
     bottom: 50,
     left: 80,
-    right: 50
+    right: 90
   };
 
   var duration = 1000;
@@ -13,11 +13,15 @@ function stackFn(config) {
   var layers = config.layers;
   var stack = d3.layout.stack()
     .values(function(d) {
+      // Hack to give properties to values
+      d.values.forEach(function(value) {
+        value.population_type = d.population_type;
+        value.coa = d.coa; });
       return d.values;
     })
     .order('inside-out')
     .y(function(d) {
-      return +d[window.manager.get('measure')] || 0;
+      return getValue(d);
     });
 
   var width = config.width - margin.left - margin.right;
@@ -30,6 +34,7 @@ function stackFn(config) {
   var y = d3.scale.linear()
     .nice()
     .range([height, 0]);
+
 
   var xAxis = d3.svg.axis()
     .scale(x)
@@ -54,7 +59,7 @@ function stackFn(config) {
       return y(+d.y0);
     })
     .y1(function(d) {
-      return y(+d.y0 + +d[window.manager.get('measure')]);
+      return y(+d.y0 + getValue(d));
     });
 
   var svg = d3.select(config.selection).append("svg")
@@ -64,21 +69,45 @@ function stackFn(config) {
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+  /* Legend */
+  var legendContainer = svg.append('g')
+    .attr('class', 'legend')
+    .attr('transform', 'translate(' + width + ', 0)');
+
+  var countries = _.uniq(layers.map(function(d) { return d.coa; }));
+  var yLegend = d3.scale.ordinal()
+    .domain(countries)
+    .rangeBands([height, 0]);
+
+  var legend = legendContainer.selectAll('.country')
+    .data(countries);
+  legend.enter().append('g');
+  legend.attr('transform', function(d) {
+    return 'translate(0,' + yLegend(d) + ')';
+  })
+    .attr('class', 'country')
+    .each(function(d) {
+      var country = d3.select(this);
+      country.append('rect')
+        .attr('x', 0)
+        .attr('y', 0)
+        .attr('width', 10)
+        .attr('height', 10);
+      country.append('text')
+        .attr('x', 20)
+        .attr('y', 0)
+        .text(d);
+    });
+  /* end legend */
+
+
 
   function render() {
     var extent = yExtent(layers);
     y.domain(extent);
 
     var stacks = svg.selectAll(".stack")
-        .data(stack(layers.filter(function(layer) {
-          var filter = window.manager.get('filter');
-          if (filter.population_type && filter.coa) {
-            return layer.population_type === filter.population_type &&
-                   layer.coa === filter.coa;
-          } else {
-            return true;
-          }
-        })));
+        .data(stack(layers));
 
     stacks.enter().append("path");
     stacks
@@ -149,7 +178,7 @@ function stackFn(config) {
     layers.forEach(function(layer) {
 
       var layerExtent = d3.extent(layer.values, function(d) {
-        return +d[window.manager.get('measure')];
+        return getValue(d);
       });
 
       extent[0] -= Math.abs(layerExtent[0]);
@@ -157,6 +186,19 @@ function stackFn(config) {
     });
 
     return extent;
+  }
+
+  function getValue(d) {
+      var filter = window.manager.get('filter');
+      if (window.manager.isFilter()) {
+        if (d.population_type === filter.population_type && d.coa === filter.coa) {
+          return +d[window.manager.get('measure')] || 0;
+        } else {
+          return 0;
+        }
+      } else {
+        return +d[window.manager.get('measure')] || 0;
+      }
   }
 
   return render;

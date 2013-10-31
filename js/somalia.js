@@ -105,6 +105,12 @@ Somalia.Events = [
     date: parseDate('2000')
   },
   {
+    title: 'Ethiopia Invasion',
+    description: 'Ethiopia invades Somalia, ousts Islamic Courts Union',
+    date: parseDate('2006')
+
+  },
+  {
     title: 'Ethiopia Withdrawal',
     description: 'Ethiopia withdraws from Somalia, hands control to AMISOM/TFG forces',
     date: parseDate('2009')
@@ -114,6 +120,12 @@ Somalia.Events = [
     date: parseDate('2012')
   },
 ];
+
+Somalia.CountryColors = {
+  Somalia: 'red',
+  Uganda: 'blue',
+  Yemen: 'yellow'
+}
 
 function tooltip() {
   var $body = $('body');
