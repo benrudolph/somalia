@@ -9,6 +9,7 @@ function stackFn(config) {
 
   var duration = 1000;
 
+  var legendBoxLength = 13;
 
   var layers = config.layers;
   var stack = d3.layout.stack()
@@ -72,7 +73,7 @@ function stackFn(config) {
   /* Legend */
   var legendContainer = svg.append('g')
     .attr('class', 'legend')
-    .attr('transform', 'translate(' + width + ', 0)');
+    .attr('transform', 'translate(' + (width + 10) + ', 0)');
 
   var countries = _.uniq(layers.map(function(d) { return d.coa; }));
   var yLegend = d3.scale.ordinal()
@@ -91,11 +92,17 @@ function stackFn(config) {
       country.append('rect')
         .attr('x', 0)
         .attr('y', 0)
-        .attr('width', 10)
-        .attr('height', 10);
+        .attr('width', legendBoxLength)
+        .attr('height', legendBoxLength)
+        .style('fill', function(d) {
+          return Somalia.CountryColors[d];
+        });
+
+
       country.append('text')
         .attr('x', 20)
         .attr('y', 0)
+        .attr('dy', '.7em')
         .text(d);
     });
   /* end legend */
@@ -120,6 +127,9 @@ function stackFn(config) {
           return [d.population_type.toLowerCase().replace(/ /g, ''),
                   d.coa.toLowerCase(),
                   'stack'].join(' ');
+        })
+        .style('fill', function(d) {
+          return Somalia.CountryColors[d.coa];
         });
 
     stacks.on('click', function(d) {

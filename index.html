@@ -43,6 +43,15 @@
         pointer-events: none;
     }
 
+    .country rect {
+      stroke-width: 1px;
+      stroke: black;
+    }
+
+    .country text {
+      font-weight: 300;
+    }
+
 
     .subtle-shadow {
       -webkit-box-shadow: 0px 0px 7px rgba(50, 50, 50, .3);
@@ -56,11 +65,12 @@
     }
 
     .stack {
-      opacity: .5;
       cursor: pointer;
     }
 
     .stack:hover {
+      stroke: black;
+      stroke-width: 1px;
       opacity: 1;
     }
 
@@ -85,7 +95,7 @@
     }
     .refugees {
       opacity: 1;
-    }*/
+    }
 
     .djibouti {
       fill: red;
@@ -109,7 +119,7 @@
 
     .yemen {
       fill: orange;
-    }
+    }*/
 
     .gone {
     }
@@ -152,13 +162,16 @@
       <div class="description">Ethiopia withdraws from Somalia, hands control to AMISOM/TFG forces</div>
     </div>
     <div id="stack-graph"></div>
+    <div id="map"></div>
     <div id="change"></div>
     <script src="/vendor/d3.v3.min.js"></script>
+    <script src="/vendor/topojson.js"></script>
     <script src="/vendor/jquery.min.js"></script>
     <script src="/vendor/jquery.countTo.js"></script>
     <script src="/vendor/underscore.js"></script>
     <script src="/vendor/backbone.js"></script>
     <script src="/graphs/stack.js"></script>
+    <script src="/graphs/map.js"></script>
     <script src="/graphs/change.js"></script>
     <script src="/js/somalia.js"></script>
   </body>

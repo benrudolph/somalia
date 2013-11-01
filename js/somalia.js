@@ -2,6 +2,7 @@ $(document).ready(function() {
 
   var stack;
   var change;
+  var map;
   window.manager = new Somalia.Manager();
 
   window.manager.on('change', function() {
@@ -45,6 +46,19 @@ $(document).ready(function() {
     });
 
     change();
+
+  });
+
+  d3.json('/data/subunits.json', function(err, countries) {
+    map = mapFn({
+      data: countries,
+      width: 500,
+      height: 500,
+      selection: '#map',
+      margin: { top: 10, bottom: 10, left: 10, right: 10 }
+    });
+
+    map();
 
   });
 });
@@ -122,10 +136,13 @@ Somalia.Events = [
 ];
 
 Somalia.CountryColors = {
-  Somalia: 'red',
-  Uganda: 'blue',
-  Yemen: 'yellow'
-}
+  Somalia: 'rgb(228, 26, 28)',
+  Uganda: 'rgb(55, 126, 184)',
+  Yemen: 'rgb(77, 175, 74)',
+  Kenya: 'rgb(152, 78, 163)',
+  Eritrea: 'rgb(255, 127, 0)',
+  Djibouti: 'rgb(255, 255, 51)'
+};
 
 function tooltip() {
   var $body = $('body');
