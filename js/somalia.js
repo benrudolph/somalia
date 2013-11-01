@@ -31,7 +31,7 @@ $(document).ready(function() {
 
   tooltip();
 
-  d3.json('/data/data.json', function(layers) {
+  d3.json('./data/data.json', function(layers) {
     stack = stackFn({
       layers: layers,
       width: 800,
@@ -49,7 +49,7 @@ $(document).ready(function() {
 
   });
 
-  d3.json('/data/subunits.json', function(err, countries) {
+  d3.json('./data/subunits.json', function(err, countries) {
     map = mapFn({
       data: countries,
       width: 500,
